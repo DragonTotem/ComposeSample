@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Theme.ComposeSample" parent="android:Theme.Material.Light.NoActionBar" />
+
+    <!-- 如果不设置相关SplashItem，即使在MainActivity中使用了installSplashScreen()也不会其任何作用 -->
+    <style name="JetpackSplashTheme" parent="Theme.SplashScreen" />
+
+    <style name="JetpackSplashThemeFirst" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash</item>
+        <item name="postSplashScreenTheme">@style/Theme.ComposeSample</item>
+    </style>
+
 </resources>

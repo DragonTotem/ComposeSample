@@ -10,11 +10,30 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.splashscreen.SplashScreen
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.zbt.compose.ui.theme.ComposeSampleTheme
 
+/**
+ * splashScreen 相关详见：
+ * https://juejin.cn/post/6997217571208445965?searchId=2024032819182195309173BBC4991C077A
+ */
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
+
+        // Keep the splash screen on-screen until the UI state is loaded. This condition is
+        // evaluated each time the app needs to be redrawn so it should be fast to avoid blocking
+        // the UI.
+        splashScreen.setKeepOnScreenCondition {
+            /*when (uiState) {
+                Loading -> true
+                is Success -> false
+            }*/
+            false
+        }
+
         setContent {
             ComposeSampleTheme {
                 // A surface container using the 'background' color from the theme
