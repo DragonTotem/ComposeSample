@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">ComposeSample</string>
+
+    <string name="activity_login_register">LoginRegisterActivity</string>
+    <string name="activity_navigation">NavigationActivity</string>
+    <string name="activity_compose_view">ComposeViewActivity</string>
+    <string name="activity_screen_jump">ScreenJumpAnimation</string>
+    <string name="activity_scroll_detail">ScrollDetailActivity</string>
+    <string name="activity_refresh_and_load_more">RefreshAndLoadMoreActivity</string>
 </resources>

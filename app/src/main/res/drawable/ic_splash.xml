@@ -4,9 +4,9 @@
     <aapt:attr name="android:drawable">
         <vector
             android:width="400dp"
-            android:height="404.73373dp"
+            android:height="400dp"
             android:viewportWidth="400"
-            android:viewportHeight="404.73373">
+            android:viewportHeight="400">
             <group
                 android:name="BirdGroup"
                 android:pivotX="200"

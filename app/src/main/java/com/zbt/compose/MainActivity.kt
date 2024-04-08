@@ -3,14 +3,21 @@ package com.zbt.compose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.core.splashscreen.SplashScreen
+import androidx.compose.ui.unit.dp
+import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.zbt.compose.ui.theme.ComposeSampleTheme
 
@@ -42,6 +49,30 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting("Android")
+                    ConstraintLayout(modifier = Modifier.fillMaxSize()) {
+                        val imageRef = createRef()
+                        Image(
+                            imageVector = ImageVector.vectorResource(R.drawable.ic_splash),
+                            contentDescription = "",
+                            modifier = Modifier.constrainAs(imageRef) {
+                                top.linkTo(parent.top)
+                                start.linkTo(parent.start)
+                                end.linkTo(parent.end)
+                                bottom.linkTo(parent.bottom)
+                            }
+                                .size(400.dp)
+                        )
+//                        Image(
+//                            bitmap = ImageBitmap.imageResource(R.drawable.ic_splash),
+//                            contentDescription = "中间背景",
+//                            modifier = Modifier.constrainAs(imageRef) {
+//                                top.linkTo(parent.top)
+//                                start.linkTo(parent.start)
+//                                end.linkTo(parent.end)
+//                                bottom.linkTo(parent.bottom)
+//                            }
+//                        )
+                    }
                 }
             }
         }
@@ -62,4 +93,9 @@ fun GreetingPreview() {
     ComposeSampleTheme {
         Greeting("Android")
     }
+}
+
+@Composable
+fun BackgroundForMainActivity() {
+
 }
