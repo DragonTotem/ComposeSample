@@ -73,13 +73,13 @@
                     android:valueFrom="@integer/icon_animator_translate_from_rotate"
                     android:valueTo="@integer/icon_animator_translate_to" />
 
-                <objectAnimator
-                    android:duration="@integer/icon_animator_duration"
-                    android:interpolator="@android:anim/decelerate_interpolator"
-                    android:propertyName="alpha"
-                    android:valueFrom="@dimen/icon_animator_alpha_from"
-                    android:valueTo="@dimen/icon_animator_alpha_to"
-                    android:valueType="floatType" />
+<!--                <objectAnimator-->
+<!--                    android:duration="@integer/icon_animator_duration"-->
+<!--                    android:interpolator="@android:anim/decelerate_interpolator"-->
+<!--                    android:propertyName="alpha"-->
+<!--                    android:valueFrom="@dimen/icon_animator_alpha_from"-->
+<!--                    android:valueTo="@dimen/icon_animator_alpha_to"-->
+<!--                    android:valueType="floatType" />-->
 
                 <objectAnimator
                     android:duration="@integer/icon_animator_duration"
