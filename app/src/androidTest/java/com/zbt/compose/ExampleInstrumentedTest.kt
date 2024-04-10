@@ -1,5 +1,6 @@
 package com.zbt.compose
 
+import android.os.Build
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
 
@@ -20,5 +21,15 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.zbt.compose", appContext.packageName)
+    }
+
+    @Test
+    fun useAppContextAndBuild() {
+        // Context of the app under test.
+        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
+        assertEquals("com.zbt.compose", appContext.packageName)
+
+        val release = Build.VERSION.RELEASE
+        assertEquals("release", release)
     }
 }
