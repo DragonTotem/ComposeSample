@@ -71,5 +71,8 @@ dependencies {
     implementation(libs.androidx.splashscreen)
 //    implementation(libs.androidx.compose.constraint)
 
+    /**
+     * 使用方法讲解 https://juejin.cn/post/6934203680786743304
+     */
     implementation(libs.constraintlayout.compose)
 }
