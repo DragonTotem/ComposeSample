@@ -5,6 +5,7 @@ coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
+kotlinxCoroutinesCoreVersion = "1.7.2"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.8.2"
 composeBom = "2024.03.00"
@@ -15,6 +16,8 @@ constraintlayout-compose = "1.0.1"
 constraintlayout = "2.1.4"
 constraintlayoutComposeVersion = "1.0.1"
 animationGraphicsAndroid = "1.6.5"
+kotlinCoroutines = "1.7.2"
+appcompat = "1.6.1"
 
 [libraries]
 # add by AS
@@ -39,6 +42,9 @@ androidx-compose-constraint =  { group = "androidx.constraintlayoute", name = "c
 constraintlayout-compose = { module = "androidx.constraintlayout:constraintlayout-compose", version.ref = "constraintlayoutComposeVersion" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-animation-graphics-android = { group = "androidx.compose.animation", name = "animation-graphics-android", version.ref = "animationGraphicsAndroid" }
+androidx-coroutines = { group = "org.jetbrains.kotlinx", name = ":kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
+jetbrains-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCoreVersion" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

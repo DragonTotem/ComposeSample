@@ -25,6 +25,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import com.zbt.compose.ui.CurtainView
 import com.zbt.compose.ui.theme.ComposeSampleTheme
 
 /**
@@ -77,7 +78,8 @@ class MainActivity : ComponentActivity() {
 //                                bottom.linkTo(parent.bottom)
 //                            }
 //                        )
-                        AnimatedVectorDrawable()
+//                        AnimatedVectorDrawable()
+                        CurtainView()
                     }
                 }
             }

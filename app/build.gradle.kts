@@ -60,6 +60,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.animation.graphics.android)
+    implementation(libs.androidx.appcompat)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -75,4 +76,6 @@ dependencies {
      * 使用方法讲解 https://juejin.cn/post/6934203680786743304
      */
     implementation(libs.constraintlayout.compose)
+
+    implementation(libs.jetbrains.kotlinx.coroutines.core)
 }
