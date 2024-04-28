@@ -6,13 +6,13 @@ import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import androidx.appcompat.widget.AppCompatSeekBar
 import kotlin.math.max
 import kotlin.math.roundToInt
 
 /**
- * Author: quantao.zhu
  * Date: 2024/4/24 下午12:13
  * Version: 1.0
  * Desc: CurtainBubbleSeekBar
@@ -21,6 +21,8 @@ import kotlin.math.roundToInt
  */
 class CurtainBubbleSeekBar(context: Context, attrs: AttributeSet? = null) :
     AppCompatSeekBar(context, attrs) {
+
+    private val TAG = "CurtainBubbleSeekBar"
 
     private val textPaint = Paint().apply {
         isAntiAlias = true
@@ -42,7 +44,7 @@ class CurtainBubbleSeekBar(context: Context, attrs: AttributeSet? = null) :
     private var userTouched = false
 
     private var widthActualProgress = 0
-    private var rangeForProgress = 0
+    private var rangeForProgress = 100
 
 //    init {
 //        // 滑块底部 背景样式 （false为透明 ）
@@ -54,15 +56,18 @@ class CurtainBubbleSeekBar(context: Context, attrs: AttributeSet? = null) :
     @SuppressWarnings("ClickableViewAccessibility")
     override fun onTouchEvent(event: MotionEvent?): Boolean {
         event ?: return super.onTouchEvent(event)
+        Log.d(TAG, "onTouchEvent event: ${event.action} x: ${event.x}  y: ${event.y}")
         if (event.action == MotionEvent.ACTION_DOWN && event.y < 36) {
             return false
         }
         when (event.action) {
             MotionEvent.ACTION_DOWN -> {
                 userTouched = true
-//                // SeekBar 由于是嵌套在RecyclerView中不会主动更新Progress
-//                progress =
-//                    ((event.x - paddingStart) * rangeForProgress / widthActualProgress + min).roundToInt()
+                if (isScrollContainer) {
+                    // SeekBar 由于是嵌套在RecyclerView中不会主动更新Progress
+                    progress =
+                        ((event.x - paddingStart) * rangeForProgress / widthActualProgress + min).roundToInt()
+                }
             }
 
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> userTouched = false

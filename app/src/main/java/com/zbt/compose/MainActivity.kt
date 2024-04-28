@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Android")
+//                    Greeting("Android")
                     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
 //                        val imageRef = createRef()
 //                        Image(

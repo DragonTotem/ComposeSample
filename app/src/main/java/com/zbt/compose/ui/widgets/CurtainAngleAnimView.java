@@ -96,12 +96,14 @@ public class CurtainAngleAnimView extends View {
             @Override
             public void onAnimProgressChanged(float progress) {
                 CurtainAngleAnimView.this.progress = progress;
+                Log.d(TAG, "onAnimProgressChanged: " + progress);
                 postInvalidate();
             }
 
             @Override
             public void onAnimAngleChanged(float animAngle) {
                 CurtainAngleAnimView.this.animAngle = animAngle;
+                // 角度变换
                 updateCurtainLeafCameraByAngle(animAngle);
                 postInvalidate();
             }
@@ -147,7 +149,7 @@ public class CurtainAngleAnimView extends View {
     private void drawCurtainLeaf(Canvas canvas, int width, int height) {
         canvas.save();
         if (!isResizeCurtainLeaf) {
-            //重新给扇页的宽度赋值
+            //重新给扇页的宽度赋值，赋值一次即可。
             Matrix matrix = new Matrix();
             matrix.postScale(getCurtainLeafWidth() / curtainLeafBitmap.getWidth(), 1f);
             curtainLeafBitmap = Bitmap.createBitmap(curtainLeafBitmap, 0, 0, curtainLeafBitmap.getWidth(), curtainLeafBitmap.getHeight(), matrix, true);
@@ -156,7 +158,9 @@ public class CurtainAngleAnimView extends View {
         canvas.translate(CURTAIN_LEAF_PADDING, 0);
         for (int i = 0; i < CURTAIN_LEAF_MAX_COUNT; ++i) {
             canvas.save();
+            // 24个图片，每个图片的Y轴位置
             canvas.translate(getCurtainLeafPositionByIndex(i), 0);
+            // 根据更新的matrix的角度绘制图片
             canvas.drawBitmap(
                     curtainLeafBitmap,
                     curtainLeafMatrix,
@@ -214,9 +218,12 @@ public class CurtainAngleAnimView extends View {
 
     private void updateCurtainLeafCameraByAngle(float angle) {
         curtainLeafCamera.save();
+        // x,y,z?
         curtainLeafCamera.setLocation(0, 0, 180);
+        // 变换Y轴的角度
         curtainLeafCamera.rotateY(angle);
         curtainLeafCamera.getMatrix(curtainLeafMatrix);
+        // 定义图片的宽度
         curtainLeafMatrix.preTranslate(-getCurtainLeafWidth() / 2, 0f);
         curtainLeafMatrix.postTranslate(getCurtainLeafWidth() / 2, 0f);
         curtainLeafCamera.restore();
@@ -249,7 +256,14 @@ public class CurtainAngleAnimView extends View {
         postInvalidate();
     }
 
+    /**
+     * 先对比进度是否一样，如果进度不一样，则先将角度调整到90度，执行完角度动画后再执行进度动画
+     *
+     * @param progress 目标进度
+     * @param angle 目标角度
+     */
     public void updateCurtainProgress(float progress, float angle) {
+        Log.d(TAG, "progress: " + progress);
         if (this.progress != progress) {
             curtainAnim.startAngleAndTranslateProgressAnim(
                     this.angle,
