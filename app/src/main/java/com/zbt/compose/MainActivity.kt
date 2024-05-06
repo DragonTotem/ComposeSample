@@ -27,6 +27,7 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.zbt.compose.ui.CurtainView
 import com.zbt.compose.ui.theme.ComposeSampleTheme
+import androidx.lifecycle.lifecycleScope
 
 /**
  * splashScreen 相关详见：
@@ -84,6 +85,7 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        lifecycleScope.coroutineContext
     }
 }
 
