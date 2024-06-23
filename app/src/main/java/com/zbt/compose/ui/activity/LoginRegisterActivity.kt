@@ -3,6 +3,9 @@ package com.zbt.compose.ui.activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.runtime.Composable
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 /**
  * Author: zbt
@@ -18,4 +21,15 @@ class LoginRegisterActivity: ComponentActivity() {
 
         }
     }
+}
+
+object Destinations {
+    const val LOGIN_ROUTE = "login"
+    const val REGISTER_ROUTE = "register"
+    const val SERVER_RESULT_ROUTE = "server_result"
+}
+
+@Composable
+fun LoginNavHost(navController: NavController = rememberNavController()) {
+
 }

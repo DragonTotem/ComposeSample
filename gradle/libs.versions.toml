@@ -1,5 +1,5 @@
 [versions]
-agp = "8.3.1"
+agp = "8.3.2"
 kotlin = "1.9.23"
 coreKtx = "1.12.0"
 junit = "4.13.2"
@@ -18,6 +18,8 @@ constraintlayoutComposeVersion = "1.0.1"
 animationGraphicsAndroid = "1.6.5"
 kotlinCoroutines = "1.7.2"
 appcompat = "1.6.1"
+navigationRuntimeKtx = "2.7.7"
+navigationCompose = "2.7.7"
 
 [libraries]
 # add by AS
@@ -45,6 +47,8 @@ androidx-animation-graphics-android = { group = "androidx.compose.animation", na
 androidx-coroutines = { group = "org.jetbrains.kotlinx", name = ":kotlinx-coroutines-core", version.ref = "kotlinCoroutines" }
 jetbrains-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCoreVersion" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+androidx-navigation-runtime-ktx = { group = "androidx.navigation", name = "navigation-runtime-ktx", version.ref = "navigationRuntimeKtx" }
+androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
